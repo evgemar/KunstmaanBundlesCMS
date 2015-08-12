@@ -25,13 +25,13 @@ class SitemapController extends Controller
     public function sitemapAction($locale)
     {
         $em = $this->getDoctrine()->getManager();
-	$securityContext = $this->get('security.context');
-	$aclHelper = $this->get('kunstmaan_admin.acl.helper');
-        $nodeMenu = new NodeMenu($em, $securityContext, $aclHelper, $locale, null, PermissionMap::PERMISSION_VIEW, false, true);
+        $securityContext = $this->get('security.context');
+        $aclHelper = $this->get('kunstmaan_admin.acl.helper');
+        $nodeMenu = new NodeMenu($em, $securityContext, $aclHelper, $locale, null, PermissionMap::PERMISSION_VIEW, false, false);
 
-        return array(
+        return  $this->render('KunstmaanSitemapBundle:Sitemap:view.xml.twig', array(
             'nodemenu' => $nodeMenu,
-        );
+        ));
     }
 
     /**
@@ -48,13 +48,13 @@ class SitemapController extends Controller
      */
     public function sitemapIndexAction(Request $request)
     {
-	$requiredLocales = $this->container->getParameter('requiredlocales');
-	$locales = explode("|", $requiredLocales);
+        $requiredLocales = $this->container->getParameter('requiredlocales');
+        $locales = explode("|", $requiredLocales);
 
-	return array(
-	    'locales' => $locales,
-	    'host' => $request->getSchemeAndHttpHost()
-	);
+        return  $this->render('KunstmaanSitemapBundle:Sitemap:view.xml.twig', array(
+            'locales' => $locales,
+            'host' => $request->getSchemeAndHttpHost()
+        ));
     }
 
 }
