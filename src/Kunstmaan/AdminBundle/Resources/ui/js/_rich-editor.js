@@ -22,7 +22,7 @@ kunstmaanbundles.richEditor = (function(window, undefined) {
             },
             {
                 name: 'insert',
-                items : ['Image', 'Table', 'SpecialChar']
+                items : ['Image', 'Table', 'SpecialChar', 'questStyles']
             },
             {
                 name: 'clipboard',
@@ -94,17 +94,32 @@ kunstmaanbundles.richEditor = (function(window, undefined) {
         }
 
         elToolbar = (_ckEditorConfigs.hasOwnProperty($el.data('editor-mode'))) ? _ckEditorConfigs[$el.data('editor-mode')] : _ckEditorConfigs['kumaDefault'];
+        console.log(elToolbar)
         customConfigFile = customConfigFile || '';
 
+        /*CKEDITOR.editorConfig = function( config ) {
+         //Define changes to default configuration here. For example:
+         config.uiColor = '#AADC6E';
+         config.extraPlugins = 'questStyles';
+         // Define the toolbar buttons you want to have available
+         config.toolbar = 'MyToolbar';
+         config.toolbar_MyToolbar =
+         [
+         ['questStyles', 'Preview'],
+         ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Scayt'],
+         ['Undo', 'Redo', '-', 'Find', 'Replace', '-', 'SelectAll', 'RemoveFormat']
+         ];
+
+         };*/
         // Place CK
         CKEDITOR.replace(elId, {
             skin: 'bootstrapck',
             startupFocus: false,
             height: elHeight,
             bodyClass: 'CKEditor',
-
             filebrowserBrowseUrl: fileBrowseUrl,
             filebrowserWindowWidth: 970,
+            extraPlugins: 'timestamp,quecity',
 
             filebrowserImageBrowseUrl: imageBrowseUrl,
             filebrowserImageBrowseLinkUrl: imageBrowseUrl,
@@ -116,10 +131,11 @@ kunstmaanbundles.richEditor = (function(window, undefined) {
             shiftEnterMode: elShiftEnterMode,
 
             toolbar: elToolbar,
+            // Rearrange toolbar groups and remove unnecessary plugins.
             customConfig: customConfigFile
         });
-
         $el.addClass('js-rich-editor--enabled');
+
 
         // Behat tests
         // Add id on iframe so that behat tests can interact
