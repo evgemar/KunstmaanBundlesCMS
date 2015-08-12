@@ -119,7 +119,7 @@ kunstmaanbundles.richEditor = (function(window, undefined) {
             bodyClass: 'CKEditor',
             filebrowserBrowseUrl: fileBrowseUrl,
             filebrowserWindowWidth: 970,
-            extraPlugins: 'quecity',
+            extraPlugins: 'quecity,stylesheetparser-fixed',
 
             filebrowserImageBrowseUrl: imageBrowseUrl,
             filebrowserImageBrowseLinkUrl: imageBrowseUrl,
@@ -134,6 +134,8 @@ kunstmaanbundles.richEditor = (function(window, undefined) {
             // Rearrange toolbar groups and remove unnecessary plugins.
             customConfig: customConfigFile
         });
+        CKEDITOR.config.stylesSet  ='dd_styles';
+        CKEDITOR.config.contentsCss ='/css/dev/inc/tpl/engine/admin.css';
         $el.addClass('js-rich-editor--enabled');
 
 
