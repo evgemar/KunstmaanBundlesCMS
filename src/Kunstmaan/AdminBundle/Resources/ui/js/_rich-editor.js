@@ -119,7 +119,7 @@ kunstmaanbundles.richEditor = (function(window, undefined) {
             bodyClass: 'CKEditor',
             filebrowserBrowseUrl: fileBrowseUrl,
             filebrowserWindowWidth: 970,
-            extraPlugins: 'timestamp,quecity',
+            extraPlugins: 'quecity',
 
             filebrowserImageBrowseUrl: imageBrowseUrl,
             filebrowserImageBrowseLinkUrl: imageBrowseUrl,
