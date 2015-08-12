@@ -26,7 +26,6 @@ CKEDITOR.plugins.add( 'quecity', {
 
             onClick : function( value )
             {
-                console.log(value)
                 var txt = '';
                 switch(value){
                     case 'ec-block':
