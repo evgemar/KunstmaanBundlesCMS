@@ -51,7 +51,7 @@ class SitemapController extends Controller
         $requiredLocales = $this->container->getParameter('requiredlocales');
         $locales = explode("|", $requiredLocales);
 
-        return  $this->render('KunstmaanSitemapBundle:Sitemap:view.xml.twig', array(
+        return  $this->render('KunstmaanSitemapBundle:SitemapIndex:view.xml.twig', array(
             'locales' => $locales,
             'host' => $request->getSchemeAndHttpHost()
         ));
