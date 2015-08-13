@@ -20,6 +20,8 @@ CKEDITOR.plugins.add( 'quecity', {
                 this.add( 'figure', 'Цифро' );
                 this.add( 'quote', 'Цитатник' );
                 this.add( 'steps', 'Шаги' );
+                this.add( 'map', 'Карта' );
+                this.add( 'sample-answer', 'Пример ответа' );
                 // Default value on first click
                 //this.setValue('name', 'name');
             },
@@ -63,6 +65,12 @@ CKEDITOR.plugins.add( 'quecity', {
                         '<li>Переходите с площади на сторону магазина «Каравай»</li>' +
                         '<li>Переходите с площади на сторону магазина «Каравай»</li>' +
                         '<li>Переходите с площади</li></ul></nav>';
+                        break;
+                    case 'map':
+                        txt = '<div class="block-1 unit-map"><a class="expand-btn" href="geo:<lat>,<lon>">Открыть маршрут</a></div>';
+                        break;
+                    case 'sample-answer':
+                        txt = '<p class="hint">the answer should be a noun, such as a sofa</p>';
                         break;
                 }
                 editor.focus();
