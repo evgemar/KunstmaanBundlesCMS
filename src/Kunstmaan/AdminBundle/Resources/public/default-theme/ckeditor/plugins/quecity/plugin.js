@@ -67,7 +67,7 @@ CKEDITOR.plugins.add( 'quecity', {
                         '<li>Переходите с площади</li></ul></nav>';
                         break;
                     case 'map':
-                        txt = '<div class="block-1 unit-map"><a class="expand-btn" href="geo:<lat>,<lon>">Открыть маршрут</a></div>';
+                        txt = '<div class="block-1 unit-map" style="background-image: url('../../../../../img/bg/engine/map-sample.jpg')"><a class="expand-btn" href="geo:<lat>,<lon>">Открыть маршрут</a></div>';
                         break;
                     case 'sample-answer':
                         txt = '<p class="hint">the answer should be a noun, such as a sofa</p>';
