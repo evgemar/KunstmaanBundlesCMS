@@ -117,6 +117,7 @@
 						validSelectors = editor.config.stylesheetParser_validSelectors || ( /\w+\.\w+/ );
 
 						// Add the styles found in the document
+						definitions= definitions || '';
 						editor._.stylesDefinitions = definitions.concat( LoadStylesCSS( editor.document.$, skipSelectors, validSelectors ) );
 
 						// Refresh the styles combo
